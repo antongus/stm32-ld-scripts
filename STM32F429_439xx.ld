@@ -1,0 +1,13 @@
+/*************************************************
+* linker script for STM32F4XX microcontrollers
+************************************************/ 
+
+MEMORY
+{
+	RAM (xrw)	: ORIGIN = 0x20000000, LENGTH =  112K       /* Main RAM (can be accessed by DMA) */
+	CCRAM (rw)	: ORIGIN = 0x10000000, LENGTH =   64K       /* Core coupled RAM (can NOT be accessed by DMA) */
+	FLASH (rx)	: ORIGIN = 0x08000000, LENGTH = 1024K       /* Flash */
+	BATTRAM (rw): ORIGIN = 0x40024000, LENGTH =    4K       /* Battery backed RAM */
+}
+
+INCLUDE "stm32f4.ld"
