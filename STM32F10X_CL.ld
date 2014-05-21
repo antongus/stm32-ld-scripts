@@ -1,6 +1,6 @@
-/*************************************************
-* linker script for STM32F10x Connectivity Line Devices
-************************************************/ 
+/**
+ * linker script for STM32F10x Connectivity Line Devices
+ */ 
 
 MEMORY
 {

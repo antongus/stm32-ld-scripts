@@ -1,6 +1,6 @@
-/*************************************************
-* linker script for STM32 microcontrollers
-************************************************/ 
+/**
+ * linker script for STM32f4 microcontrollers
+ */ 
 
 ENTRY(Reset_Handler)
 

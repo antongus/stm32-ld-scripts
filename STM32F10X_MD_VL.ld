@@ -1,6 +1,6 @@
 /**
-* linker script for STM32F10x Medium Density Value Line Devices
-*/ 
+ * linker script for STM32F10x Medium Density Value Line Devices
+ */ 
 
 MEMORY
 {

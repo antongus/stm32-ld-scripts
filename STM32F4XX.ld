@@ -1,6 +1,6 @@
-/*************************************************
-* linker script for STM32F4XX microcontrollers
-************************************************/ 
+/**
+ * linker script for STM32F4XX microcontrollers
+ */ 
 
 MEMORY
 {

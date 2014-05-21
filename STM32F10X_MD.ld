@@ -1,6 +1,6 @@
-/*************************************************
-* linker script for STM32F10x Medium Density Devices
-************************************************/ 
+/**
+ * linker script for STM32F10x Medium Density Devices
+ */ 
 
 MEMORY
 {
