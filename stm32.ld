@@ -97,7 +97,7 @@ SECTIONS
 	/**
 	 * .bss section - uninitialized data
 	 */
-	.bss :
+	.bss (NOLOAD):
 	{
 		. = ALIGN(4);
 		_sbss = .;                 /* start of .bss label (for startup) */
@@ -111,14 +111,14 @@ SECTIONS
 	/**
 	 * .noinit section - uninitialized data
 	 */
-	.noinit :
+	.noinit (NOLOAD):
 	{
 		. = ALIGN(4);
-		_noinit = .;
+		_start_of_noinit = .;
 		*(.noinit)
 		*(.noinit.*)
 		. = ALIGN(4);
-		_end_noinit = .;   
+		_end_of_noinit = .;   
 		_end = .;                  /* end of used ram (start of heap) */
 		__end = .;                 /* the same */
 	} >RAM
@@ -126,7 +126,7 @@ SECTIONS
 	/**
 	 * Battery backed RAM data
 	 */
-	.battram :
+	.battram (NOLOAD):
 	{
 		. = ALIGN(4);
 		_start_of_batt_ram = .;
