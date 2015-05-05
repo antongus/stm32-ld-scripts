@@ -106,10 +106,23 @@ SECTIONS
 		*(COMMON)
 		. = ALIGN(4);
 		_ebss = .;                 /* end of .bss label (for startup) */
+	} >RAM
+
+	/**
+	 * .noinit section - uninitialized data
+	 */
+	.noinit :
+	{
+		. = ALIGN(4);
+		_noinit = .;
+		*(.noinit)
+		*(.noinit.*)
+		. = ALIGN(4);
+		_end_noinit = .;   
 		_end = .;                  /* end of used ram (start of heap) */
 		__end = .;                 /* the same */
 	} >RAM
-
+	
 	/**
 	 * Battery backed RAM data
 	 */
