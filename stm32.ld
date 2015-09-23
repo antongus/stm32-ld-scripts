@@ -162,7 +162,7 @@ SECTIONS
 
 
 	PROVIDE( _heap = _ebss );
-	PROVIDE ( _eheap = ALIGN(ORIGIN(RAM) + LENGTH(RAM) - 8 - MINIMUM_HEAP_SIZE , 8) );
+	PROVIDE ( _eheap = ALIGN(ORIGIN(RAM) + LENGTH(RAM) - 8, 8) );
 
 	/**
 	 * After that it's only debugging information.
