@@ -7,16 +7,16 @@
 ENTRY(Reset_Handler)
 
 /**
- * This constant is used to check that at least MINIMUM_STACK_SIZE of RAM
+ * This constant is used to check that at least STACK_SIZE of RAM
  * is available for stack. If not, linker will issue an error.
  */
-MINIMUM_STACK_SIZE = 0x100 ;
+STACK_SIZE = 0x100 ;
 
 /**
- * This constant is used to check that at least MINIMUM_HEAP_SIZE of RAM
+ * This constant is used to check that at least HEAP_SIZE of RAM
  * is available for heap. If not, linker will issue an error.
  */
-MINIMUM_HEAP_SIZE = 0x100 ;
+HEAP_SIZE = 0x100 ;
 
 
 /**
@@ -155,14 +155,14 @@ SECTIONS
 	._usr_stack_heap :
 	{
 		. = ALIGN(4);
-		. = . + MINIMUM_STACK_SIZE ;
-		. = . + MINIMUM_HEAP_SIZE ;
+		. = . + STACK_SIZE ;
+		. = . + HEAP_SIZE ;
 		. = ALIGN(4);
 	} >RAM
 
 
 	PROVIDE( _heap = _ebss );
-	PROVIDE ( _eheap = ALIGN(ORIGIN(RAM) + LENGTH(RAM) - 8 - MINIMUM_HEAP_SIZE , 8) );
+	PROVIDE ( _eheap = _estack - STACK_SIZE );
 
 	/**
 	 * After that it's only debugging information.
