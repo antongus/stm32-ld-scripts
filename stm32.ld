@@ -38,9 +38,15 @@ SECTIONS
 
 	.text :
 	{
+        __preinit_array_start = .;
+        KEEP(*(.preinit_array*))
+        __preinit_array_end = .;
+
 		__ctors_start__ = .;
+        __init_array_start  = .;
 		KEEP(SORT(*)(.init_array)) /* eabi uses .init_array for static constructor lists */
 		__ctors_end__ = .;
+        __init_array_end    = .;
 
 		__dtors_start__ = .;
 		__dtors_end__ = .;
@@ -216,3 +222,10 @@ SECTIONS
 	.debug_typenames 0 : { *(.debug_typenames) }
 	.debug_varnames  0 : { *(.debug_varnames) }
 }
+
+PROVIDE (__top_of_stack = _estack);
+PROVIDE (__idata_start = _sidata);         /* start of initializers */
+PROVIDE (__data_start = _sdata);           /* start of initialized data section */
+PROVIDE (__data_end = _edata);             /* end of initialized data section */
+PROVIDE (__bss_start = _sbss);             /* start of zero-filled data section */
+PROVIDE (__bss_end = _ebss);               /* end of zero-filled data section */
