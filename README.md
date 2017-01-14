@@ -18,7 +18,7 @@ It's handy for makefiles:
 	LD_SCRIPT	= $(CHIP).ld
 	LD_SCRIPT_PATH	= ld-scripts
 ...
-	LD_FLAGS	+= -L$(LD_SCRIPTS)
+	LD_FLAGS	+= -L$(LD_SCRIPT_PATH)
 	LD_FLAGS	+= -T$(LD_SCRIPT)
 ```
 See [https://github.com/antongus/stm32-ld-scripts](https://github.com/antongus/stm32-ld-scripts) for latest version.
